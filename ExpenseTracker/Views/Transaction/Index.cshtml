@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ExpenseTracker.Models.Transaction>
+
+@{
+    ViewData["PageTitle"] = "Операции";
+    ViewData["PageActionText"] = "Добавить операцию";
+    ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
+}
+
+<div class="row">
+
+    @*left*@
+    <div class="col-md-7">
+        <div class="categoryTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Категория</th>
+                        <th>Доход/ Расход</th>
+                        <th>Дата</th>
+                        <th>Прим-е</th>
+                        <th>Ред-е | Удаление</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CategoryTitleWithIcon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FormattedAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>
+                            <td>
+                                <a asp-action="AddOrEdit" asp-route-id="@item.TransactionId">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    @*ridth*@
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ExpenseTracker.Models.Category>
+
+@{
+    ViewData["PageTitle"] = "Категории";
+    ViewData["PageActionText"] = "Добавить категорию";
+    ViewData["PageActionUrl"] = "/Category/AddOrEdit";
+}
+
+<div class="row">
+
+    @*left*@
+    <div class="col-md-7">
+        <div class="categoryTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Вид</th>
+                        <th>Ред-е | Удаление</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderBy(x => x.Title))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TitleWithIcon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Type)
+                            </td>
+                            <td>
+                                <a asp-action="AddOrEdit" asp-route-id="@item.CategoryId">Edit</a> |
+                                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*ridth*@
+    <div class="col-md-5">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-image fa-2xl"></i>
+        </div>
+    </div>
+</div>

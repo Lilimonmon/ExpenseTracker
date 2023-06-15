@@ -1,0 +1,43 @@
+﻿@model ExpenseTracker.Models.Transaction
+
+@{
+    ViewData["PageTitle"] = "Удаление";
+}
+
+<h3>Вы действительно хотите удалить выбранную операцию?</h3>
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoryTitleWithIcon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoryTitleWithIcon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FormattedAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FormattedAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TransactionId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
