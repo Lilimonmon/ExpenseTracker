@@ -6,11 +6,20 @@ html, header, body, td, th, nav {
 
 a {
     color: #e6b333;
+    text-decoration: none;
 }
+
+    a:hover {
+        color: #917120;
+    }
 
 h1 {
     font-size: 27px;
-    font-weight:bold;
+    font-weight: bold;
+}
+
+h5 {
+    text-align: center;
 }
 
 .main-content {

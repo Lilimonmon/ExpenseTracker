@@ -13,29 +13,17 @@
 <body class="e-bigger">
 
     <partial name="_SideBar" />
-    <div class="main-content">
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
-                <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExpenseTracker</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
 
+    <div class="main-content">
+        <nav class="navbar sticky-top">
+            <div class="container-fluid py-2 px-4">
+                <i></i>
+                <div>
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-message"></i>
+                </div>
+            </div>
+        </nav>
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="@(ViewData["isDashboard"] == null ? "col-md-10" : "col-md-12")">
@@ -43,27 +31,27 @@
                         @if (ViewData["isDashboard"] == null)
                         {
                             <div class="row">
-                            <div class="col-md-7">
-                                <div class="d-flex flex-column mb-5">
-                                    <div class="d-flex mb-1">
-                                        <div class="flex-grow-1">
-                                            <h3 class="fw-bold">
-                                                @ViewData["PageTitle"]
-                                            </h3>
+                                <div class="col-md-7">
+                                    <div class="d-flex flex-column mb-5">
+                                        <div class="d-flex mb-1">
+                                            <div class="flex-grow-1">
+                                                <h3 class="fw-bold">
+                                                    @ViewData["PageTitle"]
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                @if (ViewData["PageActionText"] != null)
+                                                {
+                                                    <a class="btn btn-success" href="@ViewData["PageActionUrl"]">
+                                                        @ViewData["PageActionText"]
+                                                    </a>
+                                                }
+                                            </div>
                                         </div>
-                                        <div>
-                                            @if (ViewData["PageActionText"] != null)
-                                            {
-                                                <a class="btn btn-success" href="@ViewData["PageActionUrl"]">
-                                                    @ViewData["PageActionText"]
-                                                </a>
-                                            }
-                                        </div>
+                                        <breadcrumb></breadcrumb>
                                     </div>
-                                    <breadcrumb></breadcrumb>
                                 </div>
                             </div>
-                        </div>
                         }
                         @RenderBody()
                     </main>
@@ -73,10 +61,10 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
+    <div class="container">
 
-            &copy; 2023 - ExpenseTracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    &copy; 2023 - ExpenseTracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
     </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

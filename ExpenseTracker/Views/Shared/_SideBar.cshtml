@@ -2,8 +2,36 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
 }
 
 <div class="sidebar" id="sidebar">
-    <a>hfb</a>
+
+    @*Поиск*@
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+        </div>
+    </nav>
+
+    @*Меню*@
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <ul>
+            <a href="/">Главная</a>
+        </ul>
+        <ul>
+            <a href="/Category">Категории</a>
+        </ul>
+        <ul>
+            <a href="/Transaction">Операции</a>
+        </ul>
+        <ul>
+            <a href="">Настройки</a>
+        </ul>
+    </div>
+
 </div>

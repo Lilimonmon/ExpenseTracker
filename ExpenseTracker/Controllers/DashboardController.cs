@@ -90,6 +90,14 @@ namespace ExpenseTracker.Controllers
 
             ViewBag.SplineChart = splineCharts;
 
+
+            //История транзакций
+            ViewBag.HistoryTransactions = await _context.Transactions
+                .Include(x => x.Category)
+                .OrderByDescending(x => x.Date)
+                .Take(5)
+                .ToListAsync();
+
             return View();
         }
     }
